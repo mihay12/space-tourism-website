@@ -7,8 +7,10 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
   <link rel="stylesheet" type="text/css" href="./css/index.css"></link>
   
+  <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
   <script type="text/javascript" src="data.json"></script>
-  <script type="text/javascript" src="javascript.js"></script>
+  <script type="text/javascript" src="scripts/index.js"></script>
+
   <title>Frontend Mentor | Space tourism website</title>
 </head>
 <body>
@@ -16,13 +18,14 @@
     <div class="logo"></div>
     <div class="line"></div>
     <nav>
-      <span>00 Home</span>
-      <span>01 Destination</span>
-      <span>02 Crew</span>
-      <span>03 Technology</span>
+      <span><b>00</b> Home</span>
+      <span><b>01</b> Destination</span>
+      <span><b>02</b> Crew</span>
+      <span><b>03</b> Technology</span>
     </nav>
   </header>
 
+  
   So, you want to travel to
   Space
   Let’s face it; if you want to go to space, you might as well genuinely go to 
@@ -31,5 +34,8 @@
 
   Explore
 
+  <script>
+    $("span").text().toUpperCase();
+  </script>
 </body>
 </html>
