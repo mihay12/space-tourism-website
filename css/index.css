@@ -1,12 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed&family=Bellefair&display=swap');
 
-* {
-    font-family: 'Bellefair', serif;
-    color: #ffffff;
+:root {
+  --color-light: #d0d6f9;
+  --color-dark: #0B0D17;
 }
 
-body {
-    background-image: url("../assets/home/background-home-desktop.jpg");
+* {
+    font-family: 'Bellefair', serif;
+    color: white;
+}
+
+html {
+    background: url("../assets/home/background-home-desktop.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 header {
@@ -16,36 +25,122 @@ header {
     margin: 25px 0 0 30px;
 }
 
-.logo {
+header .logo {
     background-image: url("../assets/shared/logo.svg");
     width: 48px;
     height: 48px;
 }
 
-.line {
+header .line {
     width: 35%;
     height: 1px;
-    background-color: #d0d6f9;
+    background-color: var(--color-light);
     position: relative;
     left: 60px;
 }
 
 nav {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 10% 15% 25% 15% 25% 10%;
     background-color: rgba(255,255,255,0.15);
     width: 60%; 
 }
 
-span {
+nav span {
+    padding: 25px 10px 23px 10px;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    text-align: center;
+}
+
+nav span:hover {
+    border-bottom: 2px solid var(--color-light);
+}
+
+.heading-1 {
+    font-family: 'Bellefair', serif;
+    font-size: 150px;
+}
+
+.heading-2 {
+    font-family: 'Bellefair', serif;
+    font-size: 100px;
+}
+
+.heading-3 {
+    font-family: 'Bellefair', serif;
+    font-size: 56px;
+}
+
+.heading-4 {
+    font-family: 'Bellefair', serif;
+    font-size: 32px;
+}
+
+.heading-5 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 28px;
+    letter-spacing: 4.75px;
+}
+
+.subheading-1 {
+    font-family: 'Bellefair', sans-serif;
+    font-size: 28px;
+}
+
+.subheading-2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 14px;
+    letter-spacing: 2.35px;
+}
+
+.nav-text {
     font-family: 'Barlow Condensed', sans-serif;
     font-size: 16px;
     letter-spacing: 2.7px;
-    padding: 25px 10px 23px 10px;
-    border-bottom: 2px solid transparent;
-    cursor: pointer;;
 }
 
-span:hover {
-    border-bottom: 2px solid #d0d6f9;
+.circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.circle:hover {
+    transition: 1s;
+    border: 30px solid rgba(0,0,0,0.5);
+}
+
+.circle p {
+    margin: 0;
+    color: var(--color-dark);
+}
+
+main {
+    align-items: center;
+    margin: 10% 0 0 10%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+main div.block-circle {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap; 
+}
+
+main div span {
+    display: block;
+}
+
+@media screen and (min-width:1100px) {
+    .text {
+        width: 70%;
+    }
 }
