@@ -144,3 +144,8 @@ main div span {
         width: 70%;
     }
 }
+
+/*Kласи для JQuery*/
+.span-hover {
+    border-bottom: 2px solid var(--color-light) ;
+}
