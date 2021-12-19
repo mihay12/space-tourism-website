@@ -1,3 +1,8 @@
+let data;
+fetch('./data.json')
+  .then(response => response.json())
+  .then(obj =>  data = obj);
+
 const pageMoveConditions = {
     home: {
       active: true,
@@ -27,7 +32,7 @@ const pageMoveConditions = {
     });
   }
   
-  $(document).ready(() => {
+
     const items = $("nav span, .heading-5, .heading-1, .heading-4");
   
     for (let i = 0; i < items.length; i++) {
@@ -62,7 +67,7 @@ const pageMoveConditions = {
           display: "none",
         });
         $(".home").css({
-          display: "block",
+          display: "grid",
         });
         $(".crew").css({
           display: "none",
@@ -70,6 +75,7 @@ const pageMoveConditions = {
         $(".technology").css({
           display: "none",
         });
+        console.log(data);
       }
       if (innerTextForMove === "destination") {
         $("html").css({
@@ -123,7 +129,5 @@ const pageMoveConditions = {
         $(".technology").css({
           display: "block",
         });
-      }
-    });
-  });
-  
+      } 
+    }); 
