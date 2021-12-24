@@ -61,29 +61,27 @@ const pageMoveConditions = {
   
       if (innerTextForMove === "home") {
         $("html").css({
-          background: "url(./assets/home/background-home-desktop.jpg)",
+          background: "url(./assets/home/background-home-desktop.jpg) no-repeat center center fixed",
+          backgroundSize: "cover"
         });
         $(".destination").css({
+          display: "none",
+        });
+        $(".crew").css({
+          display: "none",
+        });
+        $(".technology").css({
           display: "none",
         });
         $(".home").css({
           display: "grid",
         });
-        $(".crew").css({
-          display: "none",
-        });
-        $(".technology").css({
-          display: "none",
-        });
-        console.log(data);
       }
       if (innerTextForMove === "destination") {
         $("html").css({
           background:
-            "url(./assets/destination/background-destination-desktop.jpg)",
-        });
-        $(".destination").css({
-          display: "block",
+            "url(./assets/destination/background-destination-desktop.jpg) no-repeat center center fixed",
+            backgroundSize: "cover"
         });
         $(".home").css({
           display: "none",
@@ -94,10 +92,28 @@ const pageMoveConditions = {
         $(".technology").css({
           display: "none",
         });
+        $(".destination").css({
+          display: "grid",
+        });  
+        //треба доробити
+        for(let i = 0; i <= data["destinations"].length; i++) {
+          const navText = `<p class="nav-text">${data["destinations"][i].name} </p>`
+          $(".planet-nav").append(navText).on("click", event => {
+            debugger
+            $(".planet-name p").text(data["destinations"][i].name);
+            $(".planet-img").css({
+              background: data["destinations"][i]["images"]["png"],
+            });
+            $(".planet-text").text(data["destinations"][i].description);
+            $(".avg-distance").text(data["destinations"][i].distance);
+            $(".est-travel-time").text(data["destinations"][i].travel);
+          });
+        }
       }
       if (innerTextForMove === "crew") {
         $("html").css({
-          background: "url(./assets/crew/background-crew-desktop.jpg)",
+          background: "url(./assets/crew/background-crew-desktop.jpg) no-repeat center center fixed",
+          backgroundSize: "cover"
         });
         $(".destination").css({
           display: "none",
@@ -105,17 +121,18 @@ const pageMoveConditions = {
         $(".home").css({
           display: "none",
         });
-        $(".crew").css({
-          display: "block",
-        });
         $(".technology").css({
           display: "none",
+        });
+        $(".crew").css({
+          display: "grid",
         });
       }
       if (innerTextForMove === "technology") {
         $("html").css({
           background:
-            "url(./assets/technology/background-technology-desktop.jpg)",
+            "url(./assets/technology/background-technology-desktop.jpg) no-repeat center center fixed",
+          backgroundSize: "cover"
         });
         $(".destination").css({
           display: "none",
@@ -127,7 +144,7 @@ const pageMoveConditions = {
           display: "none",
         });
         $(".technology").css({
-          display: "block",
+          display: "grid",
         });
       } 
     }); 

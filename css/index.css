@@ -16,7 +16,12 @@ html {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    height: auto;
+    max-width: 1300px;
+    margin: auto;
 }
+
+/* Стилі хедеру */
 
 header {
     display: flex;
@@ -56,6 +61,8 @@ nav span {
 nav span:hover {
     border-bottom: 2px solid var(--color-light);
 }
+
+/* Шаблони стилів для тексту */
 
 .heading-1 {
     font-family: 'Bellefair', serif;
@@ -100,6 +107,16 @@ nav span:hover {
     letter-spacing: 2.7px;
 }
 
+/* Спільні стилі для сторінок */
+
+.destination, .crew, .technology {
+    display: none;
+    margin: 5% 0 0 10%;
+} 
+
+
+/* Стилі для home-page */
+
 .circle {
     width: 200px;
     height: 200px;
@@ -122,20 +139,20 @@ nav span:hover {
     color: var(--color-dark);
 }
 
-main {
+main.home {
     align-items: center;
     margin: 10% 0 0 10%;
     display: grid;
     grid-template-columns: 50% 50%;
 }
 
-main div.block-circle {
+main.home div.block-circle {
     justify-content: center;
     display: flex;
     flex-wrap: wrap; 
 }
 
-main div span {
+main.home div span {
     display: block;
 }
 
@@ -145,7 +162,31 @@ main div span {
     }
 }
 
-/*Kласи для JQuery*/
+/* Стилі для destination-page */
+
+main.destination {
+    /* display: grid; */
+    grid-template-columns: repeat(2, 1fr);
+}
+
+main.destination p.heading-5 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+main.destination p.heading-5 b {
+    color: grey;
+}
+
+/* Стилі для crew-page */
+
+
+/* Стилі для technology-page */
+
+
+/* Kласи для JQuery */
 .span-hover {
     border-bottom: 2px solid var(--color-light) ;
 }
