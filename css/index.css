@@ -31,9 +31,9 @@ header {
 }
 
 header .logo {
-    background-image: url("../assets/shared/logo.svg");
-    width: 48px;
-    height: 48px;
+    background: url("../assets/shared/logo.svg")no-repeat center center;
+    width: 50px;
+    height: 50px;
 }
 
 header .line {
@@ -167,7 +167,7 @@ main.home .text {
     font-size: 20px;
 }
 
-@media screen and (min-width:1100px) {
+@media screen and (min-width: 1100px) {
     .text {
         width: 70%;
     }
@@ -324,4 +324,46 @@ main.technology .technology-img {
 
 main.technology .circles, main.technology .technology-info{
     margin-top: 130px;
+}
+
+@media screen and (max-width: 768px) {
+    html {
+        background: url("../assets/home/background-home-tablet.jpg") no-repeat center center fixed;
+    }
+    
+    header div.line {
+        display: none;
+    }
+
+    header .nav-text b {
+        display: none;
+    }
+    
+    main.home {
+        display: block;
+        margin-left: 0;
+    }
+
+    main.home div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    main.home div .text {
+        width: 65%;
+        text-align: center;
+    }
+
+    main.home div span {
+        margin-top: 50px;
+    }
+
+    main.home div.block-circle {
+        margin-top: 150px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+
 }
