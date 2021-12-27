@@ -102,7 +102,7 @@ $("span, p").on("click", (event) => {
 
     if (!$(".planet-nav").children().length) {
       for (let i = 0; i < data["destinations"].length; i++) {
-        const navText = `<p class="nav-text" style="margin: 0 0 16px 20px;">${data[
+        const navText = `<p class="nav-text" style="margin: 0 0 16px 20px; cursor:pointer;">${data[
           "destinations"
         ][i]["name"].toUpperCase()} </p>`;
 
@@ -157,6 +157,35 @@ $("span, p").on("click", (event) => {
     $(".crew").css({
       display: "grid",
     });
+
+    if (!$(".points").children().length) {
+      for (let i = 0; i < data["crew"].length; i++) {
+        $(".points").append(`<p class="point" id="${i}"></p>`);
+      }
+    }
+    
+    $(".role").text(data.crew[0].role.toUpperCase());
+    $(".name").text(data.crew[0].name.toUpperCase());
+    $(".bio").text(data.crew[0].bio);
+    $(".person-img").css({
+      background: `url(${data.crew[0]["images"]["png"]}) no-repeat center center`,
+    });
+    $(".point").eq(0).addClass("point-active");
+  
+    $(".point").on("click", (event) => {
+      $(".role").text(data.crew[event.currentTarget.id].role.toUpperCase());
+      $(".name").text(data.crew[event.currentTarget.id].name.toUpperCase());
+      $(".bio").text(data.crew[event.currentTarget.id].bio);
+      $(".person-img").css({
+        background: `url(${
+          data.crew[event.currentTarget.id]["images"]["png"]
+        }) no-repeat center center`,
+      });
+      for (let i = 0; i < $(".points").children().length;i++) {
+        $(".point").eq(i).removeClass("point-active");
+      } 
+      $(".point").eq(event.currentTarget.id).addClass("point-active");
+    });    
   }
 
   if (innerTextForMove === "technology") {

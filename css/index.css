@@ -107,12 +107,16 @@ nav span:hover {
     letter-spacing: 2.7px;
 }
 
-/* Спільні стилі для сторінок */
+/* Спільні стилі для всіх сторінок */
 
 .destination, .crew, .technology {
     display: none;
     margin: 3% 0 5% 10%;
 } 
+
+main p.heading-5 b {
+    color: grey;
+}
 
 /* Стилі для home-page */
 
@@ -155,6 +159,10 @@ main.home div span {
     display: block;
 }
 
+main.home .text {
+    font-size: 20px;
+}
+
 @media screen and (min-width:1100px) {
     .text {
         width: 70%;
@@ -173,10 +181,6 @@ main.destination p.heading-5 {
     grid-column-end: 3;
     grid-row-start: 1;
     grid-row-end: 2;
-}
-
-main.destination p.heading-5 b {
-    color: grey;
 }
 
 main.destination div.planet-info div.planet-nav {
@@ -219,6 +223,52 @@ div.planet-info div.additional-info p.subheading-1 {
 
 /* Стилі для crew-page */
 
+main.crew {
+    grid-template-columns: 55% 45%;
+}
+
+main.crew .points {
+    display: flex;
+}
+
+main.crew .point {
+    border-radius: 100%;
+    width: 15px;
+    height: 15px;
+    background-color: grey;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+main.crew .point:hover, main.crew .point-active {
+    background-color: white;
+}
+
+main.crew .point:first-child {
+    margin-left: 0 !important;
+}
+
+main.crew .person-inf {
+    display: flex;
+    flex-direction: column;
+    height: 700px;
+    justify-content: space-between;
+}
+
+main.crew .bio {
+    font-size: 20px;
+    color: var(--color-light);
+    width: 70%;
+}
+
+main.crew .name {
+    margin: 5px 0 5px 0;
+}
+
+main.crew .role {
+    color: grey;
+    margin: 0;
+}
 
 /* Стилі для technology-page */
 
