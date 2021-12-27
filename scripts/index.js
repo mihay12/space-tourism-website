@@ -173,18 +173,19 @@ $("span, p").on("click", (event) => {
     $(".point").eq(0).addClass("point-active");
   
     $(".point").on("click", (event) => {
-      $(".role").text(data.crew[event.currentTarget.id].role.toUpperCase());
-      $(".name").text(data.crew[event.currentTarget.id].name.toUpperCase());
-      $(".bio").text(data.crew[event.currentTarget.id].bio);
+      const currentIndex = event.currentTarget.id;
+      $(".role").text(data.crew[currentIndex].role.toUpperCase());
+      $(".name").text(data.crew[currentIndex].name.toUpperCase());
+      $(".bio").text(data.crew[currentIndex].bio);
       $(".person-img").css({
         background: `url(${
-          data.crew[event.currentTarget.id]["images"]["png"]
+          data.crew[currentIndex]["images"]["png"]
         }) no-repeat center center`,
       });
       for (let i = 0; i < $(".points").children().length;i++) {
         $(".point").eq(i).removeClass("point-active");
       } 
-      $(".point").eq(event.currentTarget.id).addClass("point-active");
+      $(".point").eq(currentIndex).addClass("point-active");
     });    
   }
 
@@ -206,5 +207,33 @@ $("span, p").on("click", (event) => {
     $(".technology").css({
       display: "grid",
     });
+
+    if (!$(".circles").children().length) {
+      for (let i = 0; i < data["technology"].length; i++) {
+        $(".circles").append(`<div class="tech-circle heading-4"> ${i + 1}</div>`);
+      }
+    }
+    
+    $(".name").text(data.technology[0].name.toUpperCase());
+    $(".describe-text").text(data.technology[0].description);
+    $(".technology-img").css({
+      background: `url(${data.technology[0]["images"]["portrait"]}) no-repeat center center`,
+    });
+    $(".tech-circle").eq(0).addClass("tech-circle-active");
+    
+    $(".tech-circle").on("click", (event) => {
+      const currentIndex = Number(event.currentTarget.textContent) - 1;
+    
+      $(".name").text(data.technology[currentIndex].name.toUpperCase());
+      $(".describe-text").text(data.technology[currentIndex].description);
+      $(".technology-img").css({
+        background: `url(${data.technology[currentIndex]["images"]["portrait"]}) no-repeat center center`,
+      });
+    
+      for (let i = 0; i < $(".circles").children().length; i++) {
+        $(".tech-circle").eq(i).removeClass("tech-circle-active");
+      }
+      $(".tech-circle").eq(currentIndex).addClass("tech-circle-active");
+    });    
   }
 });

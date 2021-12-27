@@ -62,6 +62,10 @@ nav span:hover {
     border-bottom: 2px solid var(--color-light);
 }
 
+.span-hover {
+    border-bottom: 2px solid var(--color-light) ;
+}
+
 /* Шаблони стилів для тексту */
 
 .heading-1 {
@@ -272,8 +276,52 @@ main.crew .role {
 
 /* Стилі для technology-page */
 
+main.technology p.heading-5 {
+    grid-column-start: 1;
+    grid-column-end: 4;
+}   
 
-/* Kласи для JQuery */
-.span-hover {
-    border-bottom: 2px solid var(--color-light) ;
+main.technology{
+    grid-template-columns: 10% 50% 40%; 
+    height: 570px;
+}
+
+main.technology .tech-circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+    background-color: rgba(255, 255, 255, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: 1px solid white;
+    transition: 1s;
+    margin-top: 40px;
+}
+
+main.technology .tech-circle:first-child {
+    margin-top: 0;  
+}
+
+main.technology .name {
+    margin: 0;
+}
+
+main.technology .describe-text {
+    font-size: 20px;
+    width: 70%;
+}
+
+main.technology .tech-circle:hover, main.technology .tech-circle-active {
+    background-color: rgba(255, 255, 255, 1);
+    color: black;
+}
+
+main.technology .technology-img {
+    height: 530px;
+}
+
+main.technology .circles, main.technology .technology-info{
+    margin-top: 130px;
 }
