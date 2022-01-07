@@ -32,6 +32,40 @@ function changePage(namePage) {
   });
 }
 
+function resizeWindow(nameBlockClass) {
+  $(window).on("resize", function () {
+    const win = $(this),
+      nameBlock = nameBlockClass.slice(1, nameBlockClass.length);
+    if (win.width() <= 768) {
+      $("html").css({
+        background: `"url(./assets/${nameBlock}/background-${nameBlock}-tablet.jpg) no-repeat center center fixed"`,
+        backgroundSize: "cover",
+      });
+      $(nameBlockClass).css({
+        display: "block",
+      });
+    } else if (win.width() <= 375) {
+      $("html").css({
+        background: `"url(./assets/${nameBlock}/background-${nameBlock}-mobile.jpg) no-repeat center center fixed"`,
+        backgroundSize: "cover",
+      });
+      $(nameBlockClass).css({
+        display: "block",
+      });
+    } else {
+      if ($(nameBlockClass).css("display") === "grid") return;
+
+      $("html").css({
+        background: `"url(./assets/${nameBlock}/background-${nameBlock}-desktop.jpg) no-repeat center center fixed"`,
+        backgroundSize: "cover",
+      });
+      $(nameBlockClass).css({
+        display: "grid",
+      });
+    }
+  });
+}
+
 const items = $("nav span, .heading-5, .heading-1, .heading-4, .subheading-2");
 
 for (let i = 0; i < items.length; i++) {
@@ -50,8 +84,8 @@ $("span, p").on("click", (event) => {
           .slice(3, event.currentTarget.innerText.length)
           .toLowerCase()
       : event.currentTarget.innerText.toLowerCase(),
-    conditionForWidthForTablet = $(document).width() >= 768,
-    conditionForWidthForMobile = $(document).width() >= 375;
+    conditionForWidthForTablet = $(document).width() <= 768,
+    conditionForWidthForMobile = $(document).width() <= 375;
 
   if (!pageMoveConditions[innerTextForMove]) return;
 
@@ -75,8 +109,7 @@ $("span, p").on("click", (event) => {
       $(".home").css({
         display: "block",
       });
-    }
-    if (conditionForWidthForMobile) {
+    } else if (conditionForWidthForMobile) {
       $("html").css({
         background:
           "url(./assets/home/background-home-mobile.jpg) no-repeat center center fixed",
@@ -108,26 +141,27 @@ $("span, p").on("click", (event) => {
   }
 
   if (innerTextForMove === "destination") {
-    // if (conditionForWidthForTablet) {
-    //   $("html").css({
-    //     background:
-    //       "url(./assets/home/background-home-tablet.jpg) no-repeat center center fixed",
-    //     backgroundSize: "cover",
-    //   });
-    //   $(".destination").css({
-    //     display: "block",
-    //   });
-    // }
-    // if (conditionForWidthForMobile) {
-    //   $("html").css({
-    //     background:
-    //       "url(./assets/home/background-home-mobile.jpg) no-repeat center center fixed",
-    //     backgroundSize: "cover",
-    //   });
-    //   $(".destination").css({
-    //     display: "block",
-    //   });
-    // } else {
+    resizeWindow(".destination");
+
+    if (conditionForWidthForTablet) {
+      $("html").css({
+        background:
+          "url(./assets/destination/background-destination-tablet.jpg) no-repeat center center fixed",
+        backgroundSize: "cover",
+      });
+      $(".destination").css({
+        display: "block",
+      });
+    } else if (conditionForWidthForMobile) {
+      $("html").css({
+        background:
+          "url(./assets/destination/background-destination-mobile.jpg) no-repeat center center fixed",
+        backgroundSize: "cover",
+      });
+      $(".destination").css({
+        display: "block",
+      });
+    } else {
       if ($(".destination").css("display") === "grid") return;
 
       $("html").css({
@@ -138,7 +172,7 @@ $("span, p").on("click", (event) => {
       $(".destination").css({
         display: "grid",
       });
-    // }
+    }
 
     $(".home").css({
       display: "none",
@@ -190,26 +224,27 @@ $("span, p").on("click", (event) => {
   }
 
   if (innerTextForMove === "crew") {
-    // if (conditionForWidthForTablet) {
-    //   $("html").css({
-    //     background:
-    //       "url(./assets/home/background-home-tablet.jpg) no-repeat center center fixed",
-    //     backgroundSize: "cover",
-    //   });
-    //   $(".crew").css({
-    //     display: "block",
-    //   });
-    // }
-    // if (conditionForWidthForMobile) {
-    //   $("html").css({
-    //     background:
-    //       "url(./assets/home/background-home-mobile.jpg) no-repeat center center fixed",
-    //     backgroundSize: "cover",
-    //   });
-    //   $(".crew").css({
-    //     display: "block",
-    //   });
-    // } else {
+    resizeWindow(".crew");
+
+    if (conditionForWidthForTablet) {
+      $("html").css({
+        background:
+          "url(./assets/crew/background-crew-tablet.jpg) no-repeat center center fixed",
+        backgroundSize: "cover",
+      });
+      $(".crew").css({
+        display: "block",
+      });
+    } else if (conditionForWidthForMobile) {
+      $("html").css({
+        background:
+          "url(./assets/crew/background-crew-mobile.jpg) no-repeat center center fixed",
+        backgroundSize: "cover",
+      });
+      $(".crew").css({
+        display: "block",
+      });
+    } else {
       $("html").css({
         background:
           "url(./assets/crew/background-crew-desktop.jpg) no-repeat center center fixed",
@@ -218,7 +253,8 @@ $("span, p").on("click", (event) => {
       $(".crew").css({
         display: "grid",
       });
-    // }
+    }
+
     $(".destination").css({
       display: "none",
     });
@@ -279,14 +315,14 @@ $("span, p").on("click", (event) => {
     //     display: "block",
     //   });
     // } else {
-      $("html").css({
-        background:
-          "url(./assets/technology/background-technology-desktop.jpg) no-repeat center center fixed",
-        backgroundSize: "cover",
-      });
-      $(".technology").css({
-        display: "grid",
-      });
+    $("html").css({
+      background:
+        "url(./assets/technology/background-technology-desktop.jpg) no-repeat center center fixed",
+      backgroundSize: "cover",
+    });
+    $(".technology").css({
+      display: "grid",
+    });
     // }
 
     $(".destination").css({
