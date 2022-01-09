@@ -4,23 +4,25 @@ fetch("./data.json")
   .then((obj) => (data = obj));
 
 const pageMoveConditions = {
-  home: {
-    active: true,
-    innerText: "00 HOME",
+    home: {
+      active: true,
+      innerText: "00 HOME",
+    },
+    destination: {
+      active: false,
+      innerText: "01 DESTINATION",
+    },
+    crew: {
+      active: false,
+      innerText: "02 CREW",
+    },
+    technology: {
+      active: false,
+      innerText: "03 TECHNOLOGY",
+    },
   },
-  destination: {
-    active: false,
-    innerText: "01 DESTINATION",
-  },
-  crew: {
-    active: false,
-    innerText: "02 CREW",
-  },
-  technology: {
-    active: false,
-    innerText: "03 TECHNOLOGY",
-  },
-};
+  conditionForWidthForTablet = $(document).width() <= 768,
+  conditionForWidthForMobile = $(document).width() <= 375;
 
 function changePage(namePage) {
   Object.keys(pageMoveConditions).forEach((prop) => {
@@ -78,14 +80,12 @@ $("span.nav-text").eq(0).addClass("span-hover");
 
 $("span, p").on("click", (event) => {
   const innerTextForMove = !isNaN(
-      Number(event.currentTarget.innerText.slice(0, 2))
-    )
-      ? event.currentTarget.innerText
-          .slice(3, event.currentTarget.innerText.length)
-          .toLowerCase()
-      : event.currentTarget.innerText.toLowerCase(),
-    conditionForWidthForTablet = $(document).width() <= 768,
-    conditionForWidthForMobile = $(document).width() <= 375;
+    Number(event.currentTarget.innerText.slice(0, 2))
+  )
+    ? event.currentTarget.innerText
+        .slice(3, event.currentTarget.innerText.length)
+        .toLowerCase()
+    : event.currentTarget.innerText.toLowerCase();
 
   if (!pageMoveConditions[innerTextForMove]) return;
 
@@ -295,36 +295,36 @@ $("span, p").on("click", (event) => {
   }
 
   if (innerTextForMove === "technology") {
-    // if (conditionForWidthForTablet) {
-    //   $("html").css({
-    //     background:
-    //       "url(./assets/home/background-home-tablet.jpg) no-repeat center center fixed",
-    //     backgroundSize: "cover",
-    //   });
-    //   $(".technology").css({
-    //     display: "block",
-    //   });
-    // }
-    // if (conditionForWidthForMobile) {
-    //   $("html").css({
-    //     background:
-    //       "url(./assets/home/background-home-mobile.jpg) no-repeat center center fixed",
-    //     backgroundSize: "cover",
-    //   });
-    //   $(".technology").css({
-    //     display: "block",
-    //   });
-    // } else {
-    $("html").css({
-      background:
-        "url(./assets/technology/background-technology-desktop.jpg) no-repeat center center fixed",
-      backgroundSize: "cover",
-    });
-    $(".technology").css({
-      display: "grid",
-    });
-    // }
+    resizeWindow(".technology");
 
+    if (conditionForWidthForTablet) {
+      $("html").css({
+        background:
+          "url(./assets/technology/background-technology-tablet.jpg) no-repeat center center fixed",
+        backgroundSize: "cover",
+      });
+      $(".technology").css({
+        display: "block",
+      });
+    } else if (conditionForWidthForMobile) {
+      $("html").css({
+        background:
+          "url(./assets/technology/background-v-mobile.jpg) no-repeat center center fixed",
+        backgroundSize: "cover",
+      });
+      $(".technology").css({
+        display: "block",
+      });
+    } else {
+      $("html").css({
+        background:
+          "url(./assets/technology/background-technology-desktop.jpg) no-repeat center center fixed",
+        backgroundSize: "cover",
+      });
+      $(".technology").css({
+        display: "grid",
+      });
+    }
     $(".destination").css({
       display: "none",
     });
@@ -365,3 +365,29 @@ $("span, p").on("click", (event) => {
     });
   }
 });
+
+// $(window).on("resize", function () {
+//   for (let value in pageMoveConditions) {
+//     const classBlock = `.${value}`;
+
+//     if (pageMoveConditions[value].active) {
+//       if (conditionForWidthForTablet) {
+//         $(classBlock).css({
+//           display: "block",
+//         });
+//       } else if (conditionForWidthForMobile) {
+//         $(classBlock).css({
+//           display: "block",
+//         });
+//       } else {
+//         $(classBlock).css({
+//           display: "grid",
+//         });
+//       }
+//     } else {
+//       $(classBlock).css({
+//         display: "none",
+//       });
+//     }
+//   }
+// });

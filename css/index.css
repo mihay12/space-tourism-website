@@ -1,399 +1,471 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed&family=Bellefair&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed&family=Bellefair&display=swap");
 
 :root {
   --color-light: #d0d6f9;
-  --color-dark: #0B0D17;
+  --color-dark: #0b0d17;
 }
 
 * {
-    font-family: 'Bellefair', serif;
-    color: white;
+  font-family: "Bellefair", serif;
+  color: white;
 }
 
 html {
-    background: url("../assets/home/background-home-desktop.jpg") no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    height: auto;
-    max-width: 1300px;
-    margin: auto;
+  background: url("../assets/home/background-home-desktop.jpg") no-repeat center
+    center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: auto;
+  max-width: 1300px;
+  margin: auto;
 }
 
 /* Стилі хедеру */
 
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 25px 0 0 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 25px 0 0 30px;
 }
 
 header .logo {
-    background: url("../assets/shared/logo.svg")no-repeat center center;
-    width: 50px;
-    height: 50px;
+  background: url("../assets/shared/logo.svg") no-repeat center center;
+  width: 50px;
+  height: 50px;
 }
 
 header .line {
-    width: 35%;
-    height: 1px;
-    background-color: var(--color-light);
-    position: relative;
-    left: 60px;
+  width: 35%;
+  height: 1px;
+  background-color: var(--color-light);
+  position: relative;
+  left: 60px;
 }
 
 nav {
-    display: grid;
-    grid-template-columns: 10% 15% 25% 15% 25% 10%;
-    background-color: rgba(255,255,255,0.15);
-    width: 60%; 
+  display: grid;
+  grid-template-columns: 10% 15% 25% 15% 25% 10%;
+  background-color: rgba(255, 255, 255, 0.15);
+  width: 60%;
 }
 
 nav span {
-    padding: 25px 10px 23px 10px;
-    border-bottom: 2px solid transparent;
-    cursor: pointer;
-    text-align: center;
+  padding: 25px 10px 23px 10px;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  text-align: center;
 }
 
 nav span:hover {
-    border-bottom: 2px solid var(--color-light);
+  border-bottom: 2px solid var(--color-light);
 }
 
 .span-hover {
-    border-bottom: 2px solid var(--color-light) ;
+  border-bottom: 2px solid var(--color-light);
 }
 
 /* Шаблони стилів для тексту */
 
 .heading-1 {
-    font-family: 'Bellefair', serif;
-    font-size: 150px;
+  font-family: "Bellefair", serif;
+  font-size: 150px;
 }
 
 .heading-2 {
-    font-family: 'Bellefair', serif;
-    font-size: 100px;
+  font-family: "Bellefair", serif;
+  font-size: 100px;
 }
 
 .heading-3 {
-    font-family: 'Bellefair', serif;
-    font-size: 56px;
+  font-family: "Bellefair", serif;
+  font-size: 56px;
 }
 
 .heading-4 {
-    font-family: 'Bellefair', serif;
-    font-size: 32px;
+  font-family: "Bellefair", serif;
+  font-size: 32px;
 }
 
 .heading-5 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 28px;
-    letter-spacing: 4.75px;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 28px;
+  letter-spacing: 4.75px;
 }
 
 .subheading-1 {
-    font-family: 'Bellefair', sans-serif;
-    font-size: 28px;
+  font-family: "Bellefair", sans-serif;
+  font-size: 28px;
 }
 
 .subheading-2 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 14px;
-    letter-spacing: 2.35px;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 14px;
+  letter-spacing: 2.35px;
 }
 
 .nav-text {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 16px;
-    letter-spacing: 2.7px;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 16px;
+  letter-spacing: 2.7px;
 }
 
 /* Спільні стилі для всіх сторінок */
 
-.destination, .crew, .technology {
-    display: none;
-    margin: 3% 0 5% 10%;
-} 
+.destination,
+.crew,
+.technology {
+  display: none;
+  margin: 3% 0 5% 10%;
+}
 
 main p.heading-5 b {
-    color: grey;
+  color: grey;
 }
 
 /* Стилі для home-page */
 
 .circle {
-    width: 200px;
-    height: 200px;
-    border-radius: 100%;
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: 1s;
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 1s;
 }
 
 .circle:hover {
-    transition: 1s;
-    border: 30px solid rgba(0,0,0,0.5);
+  transition: 1s;
+  border: 30px solid rgba(0, 0, 0, 0.5);
 }
 
 .circle p {
-    margin: 0;
-    color: var(--color-dark);
+  margin: 0;
+  color: var(--color-dark);
 }
 
 main.home {
-    align-items: center;
-    margin: 10% 0 0 10%;
-    display: grid;
-    grid-template-columns: 50% 50%;
+  align-items: center;
+  margin: 10% 0 0 10%;
+  display: grid;
+  grid-template-columns: 50% 50%;
 }
 
 main.home div.block-circle {
-    justify-content: center;
-    display: flex;
-    flex-wrap: wrap; 
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 main.home div span {
-    display: block;
+  display: block;
 }
 
 main.home .text {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 @media screen and (min-width: 1100px) {
-    .text {
-        width: 70%;
-    }
+  .text {
+    width: 70%;
+  }
 }
 
 /* Стилі для destination-page */
 
 main.destination {
-    /* display: grid; */
-    grid-template-columns: repeat(2, 1fr);
+  /* display: grid; */
+  grid-template-columns: repeat(2, 1fr);
 }
 
 main.destination p.heading-5 {
-    grid-column-start: 1;
-    grid-column-end: 3;
-    grid-row-start: 1;
-    grid-row-end: 2;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
 }
 
 main.destination div.planet-info div.planet-nav {
-    display: flex;
+  display: flex;
 }
 
-main.destination div.planet-info div.planet-nav p.nav-text:hover, .nav-active{
-    border-bottom: 3px solid #d0d6f9;
-    padding-bottom: 10px;
+main.destination div.planet-info div.planet-nav p.nav-text:hover,
+.nav-active {
+  border-bottom: 3px solid #d0d6f9;
+  padding-bottom: 10px;
 }
 
 main.destination div.planet-info div.planet-name p.heading-2 {
-    margin: 20px 0 20px 12px;
+  margin: 20px 0 20px 12px;
 }
 
 main.destination div.planet-info div.planet-text {
-    margin: 0 0 0 20px;
-    color: var(--color-light);
-    width: 75%;
-    font-size: 20px;
+  margin: 0 0 0 20px;
+  color: var(--color-light);
+  width: 75%;
+  font-size: 20px;
 }
 
 div.planet-info div.line {
-    width: 75%;
-    height: 1px;
-    background-color: gray;
-    margin: 60px 0 40px 20px;
+  width: 75%;
+  height: 1px;
+  background-color: gray;
+  margin: 60px 0 40px 20px;
 }
 
 div.planet-info div.additional-info {
-    display: flex;
-    justify-content: space-between;
-    width: 75%;
-    margin: 0 0 0 20px;
+  display: flex;
+  justify-content: space-between;
+  width: 75%;
+  margin: 0 0 0 20px;
 }
 
 div.planet-info div.additional-info p.subheading-1 {
-    margin: 0;
+  margin: 0;
 }
 
 /* Стилі для crew-page */
 
 main.crew {
-    grid-template-columns: 55% 45%;
+  grid-template-columns: 55% 45%;
 }
 
 main.crew .points {
-    display: flex;
+  display: flex;
 }
 
 main.crew .point {
-    border-radius: 100%;
-    width: 15px;
-    height: 15px;
-    background-color: grey;
-    margin-left: 20px;
-    cursor: pointer;
+  border-radius: 100%;
+  width: 15px;
+  height: 15px;
+  background-color: grey;
+  margin-left: 20px;
+  cursor: pointer;
 }
 
-main.crew .point:hover, main.crew .point-active {
-    background-color: white;
+main.crew .point:hover,
+main.crew .point-active {
+  background-color: white;
 }
 
 main.crew .point:first-child {
-    margin-left: 0 !important;
+  margin-left: 0 !important;
 }
 
 main.crew .person-inf {
-    display: flex;
-    flex-direction: column;
-    height: 700px;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  height: 700px;
+  justify-content: space-between;
 }
 
 main.crew .bio {
-    font-size: 20px;
-    color: var(--color-light);
-    width: 70%;
+  font-size: 20px;
+  color: var(--color-light);
+  width: 70%;
 }
 
 main.crew .name {
-    margin: 5px 0 5px 0;
+  margin: 5px 0 5px 0;
 }
 
 main.crew .role {
-    color: grey;
-    margin: 0;
+  color: grey;
+  margin: 0;
 }
 
 /* Стилі для technology-page */
 
 main.technology p.heading-5 {
-    grid-column-start: 1;
-    grid-column-end: 4;
-}   
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
 
-main.technology{
-    grid-template-columns: 10% 50% 40%; 
-    height: 570px;
+main.technology {
+  grid-template-columns: 10% 50% 40%;
+  height: 570px;
 }
 
 main.technology .tech-circle {
-    width: 70px;
-    height: 70px;
-    border-radius: 100%;
-    background-color: rgba(255, 255, 255, 0);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    border: 1px solid white;
-    transition: 1s;
-    margin-top: 40px;
+  width: 70px;
+  height: 70px;
+  border-radius: 100%;
+  background-color: rgba(255, 255, 255, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: 1px solid white;
+  transition: 1s;
+  margin-top: 40px;
 }
 
 main.technology .tech-circle:first-child {
-    margin-top: 0;  
+  margin-top: 0;
 }
 
 main.technology .name {
-    margin: 0;
+  margin: 0;
 }
 
 main.technology .describe-text {
-    font-size: 20px;
-    width: 70%;
+  font-size: 20px;
+  width: 70%;
 }
 
-main.technology .tech-circle:hover, main.technology .tech-circle-active {
-    background-color: rgba(255, 255, 255, 1);
-    color: black;
+main.technology .tech-circle:hover,
+main.technology .tech-circle-active {
+  background-color: rgba(255, 255, 255, 1);
+  color: black;
 }
 
 main.technology .technology-img {
-    height: 530px;
+  height: 530px;
 }
 
-main.technology .circles, main.technology .technology-info{
-    margin-top: 130px;
+main.technology .circles,
+main.technology .technology-info {
+  margin-top: 130px;
 }
 
 @media screen and (max-width: 768px) {
-    html {
-        background: url("../assets/home/background-home-tablet.jpg") no-repeat center center fixed;
-    }
-    
-    header div.line {
-        display: none;
-    }
+  html {
+    background: url("../assets/home/background-home-tablet.jpg") no-repeat
+      center center fixed;
+  }
 
-    header .nav-text b {
-        display: none;
-    }
-    
-    main.home {
-        display: block;
-        margin-left: 0;
-    }
+  header div.line {
+    display: none;
+  }
 
-    main.home div {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+  header .nav-text b {
+    display: none;
+  }
 
-    main.home div .text {
-        width: 65%;
-        text-align: center;
-    }
+  main.home {
+    display: block;
+    margin-left: 0;
+  }
 
-    main.home div span {
-        margin-top: 50px;
-    }
+  main.home div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-    main.home div.block-circle {
-        margin-top: 150px;
-    } 
+  main.home div .text {
+    width: 65%;
+    text-align: center;
+  }
 
-    main.destination {
-        margin: 3% 0 5% 0;
-    }
+  main.home div span {
+    margin-top: 50px;
+  }
 
-    main.destination p.heading-5 {
-        margin-left: 20px;
-    }
+  main.home div.block-circle {
+    margin-top: 150px;
+  }
 
-    main.destination div.planet-img {
-        width: 445px;
-        height: 445px;
-        margin: auto;
-        margin-bottom: 40px;
-        margin-top: 40px;
-    }
+  main.destination {
+    margin: 3% 0 5% 0;
+  }
 
-    main.destination div.planet-info {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+  main.destination p.heading-5 {
+    margin-left: 20px;
+  }
 
-    main.destination div.planet-info div.planet-text {
-        text-align: center;
-    }
+  main.destination div.planet-img,
+  main.crew div.person-img {
+    width: 445px;
+    height: 445px;
+    margin: auto;
+    margin-bottom: 40px;
+    margin-top: 40px;
+  }
 
-    main.destination div.planet-info div.additional-info {
-        justify-content: space-evenly;
-    }
+  main.destination div.planet-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  main.destination div.planet-info div.planet-text {
+    text-align: center;
+  }
+
+  main.destination div.planet-info div.additional-info {
+    justify-content: space-evenly;
+  }
+
+  main.crew div.describe {
+    text-align: center;
+  }
+
+  main.crew p.bio {
+    margin: auto;
+  }
+
+  main.crew div.points {
+    justify-content: center;
+  }
+
+  main.crew div.person-img {
+    width: 514px;
+    height: 700px;
+    margin: auto;
+    margin-bottom: 40px;
+    margin-top: 40px;
+  }
+
+  main.crew div.person-inf {
+    height: 420px;
+  }
+
+  main.technology p.heading-5 {
+    margin-left: 30px;
+  }
+
+  main.technology div.circles {
+    display: flex;
+    margin-top: 400px;
+    justify-content: center;
+  }
+
+  main.technology .tech-circle:first-child {
+    margin-left: 0 !important;
+  }
+
+  main.technology .tech-circle {
+    margin-left: 5px !important;
+  }
+
+  main.technology div.tech-circle,
+  main.technology {
+    margin: 0;
+  }
+
+  main.technology .technology-info {
+    margin-top: 30px;
+    text-align: center;
+  }
+
+  main.technology .describe-text {
+    margin: auto;
+  }
+
+  main.technology .technology-img {
+    position: relative;
+    bottom: 700px;
+    height: 300px;
+    width: 620px;
+    margin: auto;
+  }
 }
 
 @media screen and (max-width: 375px) {
-
 }
