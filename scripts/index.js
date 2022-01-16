@@ -21,8 +21,17 @@ const pageMoveConditions = {
       innerText: "03 TECHNOLOGY",
     },
   },
-  conditionForWidthForTablet = $(document).width() <= 768,
-  conditionForWidthForMobile = $(document).width() <= 375;
+  burgerMenuTemplate = `<div class="burger-menu">
+  <a href="" class="burger-menu_button">
+    <spun class="burger-menu_lines"></spun>
+  </a>
+  <nav>
+      <span class="burger-menu_link"><b>00</b> Home</span>
+      <span class="burger-menu_link"><b>01</b> Destination</span>
+      <span class="burger-menu_link"><b>02</b> Crew</span>
+      <span class="burger-menu_link"><b>03 </b> Technology</span>
+  <div class="burger-menu_overlay"></div>
+<div> `;
 
 function changePage(namePage) {
   Object.keys(pageMoveConditions).forEach((prop) => {
@@ -38,6 +47,9 @@ function resizeWindow(nameBlockClass) {
   $(window).on("resize", function () {
     const win = $(this),
       nameBlock = nameBlockClass.slice(1, nameBlockClass.length);
+
+    if (!pageMoveConditions[nameBlock].active) return;
+
     if (win.width() <= 768) {
       $("html").css({
         background: `"url(./assets/${nameBlock}/background-${nameBlock}-tablet.jpg) no-repeat center center fixed"`,
@@ -54,6 +66,8 @@ function resizeWindow(nameBlockClass) {
       $(nameBlockClass).css({
         display: "block",
       });
+      
+      createBurgerMenu();
     } else {
       if ($(nameBlockClass).css("display") === "grid") return;
 
@@ -68,6 +82,18 @@ function resizeWindow(nameBlockClass) {
   });
 }
 
+function createBurgerMenu() {
+  if ($(document).width() <= 375 && !$(".burger-menu").length) {
+    $("header").append(burgerMenuTemplate);
+    $(".burger-menu").on("click", (event) => {});
+  } else if ($(document).width() <= 375 && $(".burger-menu").length) {
+    $(".burger-menu").show();
+  } else {
+    $(".burger-menu").hide();
+  }
+}
+createBurgerMenu();
+
 const items = $("nav span, .heading-5, .heading-1, .heading-4, .subheading-2");
 
 for (let i = 0; i < items.length; i++) {
@@ -80,12 +106,14 @@ $("span.nav-text").eq(0).addClass("span-hover");
 
 $("span, p").on("click", (event) => {
   const innerTextForMove = !isNaN(
-    Number(event.currentTarget.innerText.slice(0, 2))
-  )
-    ? event.currentTarget.innerText
-        .slice(3, event.currentTarget.innerText.length)
-        .toLowerCase()
-    : event.currentTarget.innerText.toLowerCase();
+      Number(event.currentTarget.innerText.slice(0, 2))
+    )
+      ? event.currentTarget.innerText
+          .slice(3, event.currentTarget.innerText.length)
+          .toLowerCase()
+      : event.currentTarget.innerText.toLowerCase(),
+    conditionForWidthForTablet = $(document).width() <= 768,
+    conditionForWidthForMobile = $(document).width() <= 375;
 
   if (!pageMoveConditions[innerTextForMove]) return;
 
@@ -100,6 +128,8 @@ $("span, p").on("click", (event) => {
   }
 
   if (innerTextForMove === "home") {
+    resizeWindow(".home");
+
     if (conditionForWidthForTablet) {
       $("html").css({
         background:
@@ -366,28 +396,37 @@ $("span, p").on("click", (event) => {
   }
 });
 
-// $(window).on("resize", function () {
-//   for (let value in pageMoveConditions) {
-//     const classBlock = `.${value}`;
+$(window).on("resize", function () {
+  createBurgerMenu();
+});
 
-//     if (pageMoveConditions[value].active) {
-//       if (conditionForWidthForTablet) {
-//         $(classBlock).css({
-//           display: "block",
-//         });
-//       } else if (conditionForWidthForMobile) {
-//         $(classBlock).css({
-//           display: "block",
-//         });
-//       } else {
-//         $(classBlock).css({
-//           display: "grid",
-//         });
-//       }
-//     } else {
-//       $(classBlock).css({
-//         display: "none",
-//       });
-//     }
-//   }
-// });
+function burgerMenu(selector) {
+  let menu = $(selector);
+  let button = menu.find(".burger-menu_button");
+  let links = menu.find(".burger-menu_link");
+  let overlay = menu.find(".burger-menu_overlay");
+
+  button.on("click", (e) => {
+    e.preventDefault();
+    toggleMenu();
+  });
+
+  links.on("click", () => toggleMenu());
+  overlay.on("click", () => toggleMenu());
+
+  function toggleMenu() {
+    menu.toggleClass("burger-menu_active");
+
+    if (menu.hasClass("burger-menu_active")) {
+      $("body").css("overlow", "hidden");
+      $("header nav").addClass("active-nav");
+      $("header nav").removeClass("inactive-nav");
+    } else {
+      $("body").css("overlow", "visible");
+      $("header nav").addClass("inactive-nav");
+      $("header nav").removeClass("active-nav");
+    }
+  }
+}
+
+burgerMenu(".burger-menu");
