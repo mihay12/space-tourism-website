@@ -223,9 +223,7 @@ $("span, p").on("click", (event) => {
         $(".planet-nav").append(navText);
 
         $(".planet-name p").text(data["destinations"][0]["name"].toUpperCase());
-        $(".planet-img").css({
-          background: `url(${data["destinations"][0]["images"]["png"]}) no-repeat center center`,
-        });
+        $(".planet-img-tag").attr("src", `${data["destinations"][0]["images"]["png"]}`);
         $(".planet-text").text(data["destinations"][0].description);
         $(".avg-distance").text(data["destinations"][0].distance);
         $(".est-travel-time").text(data["destinations"][0].travel);
@@ -239,9 +237,7 @@ $("span, p").on("click", (event) => {
         const name = data["destinations"][i]["name"].toUpperCase();
         if (name === destinationInnerText) {
           $(".planet-name p").text(name);
-          $(".planet-img").css({
-            background: `url(${data["destinations"][i]["images"]["png"]}) no-repeat center center`,
-          });
+          $(".planet-img-tag").attr("src", `${data["destinations"][i]["images"]["png"]}`);
           $(".planet-text").text(data["destinations"][i].description);
           $(".avg-distance").text(data["destinations"][i].distance);
           $(".est-travel-time").text(data["destinations"][i].travel);
@@ -303,9 +299,7 @@ $("span, p").on("click", (event) => {
       $(".role").text(data.crew[0].role.toUpperCase());
       $(".name").text(data.crew[0].name.toUpperCase());
       $(".bio").text(data.crew[0].bio);
-      $(".person-img").css({
-        background: `url(${data.crew[0]["images"]["png"]}) no-repeat center center`,
-      });
+      $(".person-img-tag").attr("src", `${data.crew[0]["images"]["png"]}`);
       $(".point").eq(0).addClass("point-active");
     }
 
@@ -314,9 +308,7 @@ $("span, p").on("click", (event) => {
       $(".role").text(data.crew[currentIndex].role.toUpperCase());
       $(".name").text(data.crew[currentIndex].name.toUpperCase());
       $(".bio").text(data.crew[currentIndex].bio);
-      $(".person-img").css({
-        background: `url(${data.crew[currentIndex]["images"]["png"]}) no-repeat center center`,
-      });
+      $(".person-img-tag").attr("src", `${data.crew[currentIndex]["images"]["png"]}`);
       for (let i = 0; i < $(".points").children().length; i++) {
         $(".point").eq(i).removeClass("point-active");
       }
@@ -373,9 +365,7 @@ $("span, p").on("click", (event) => {
 
       $(".name").text(data.technology[0].name.toUpperCase());
       $(".describe-text").text(data.technology[0].description);
-      $(".technology-img").css({
-        background: `url(${data.technology[0]["images"]["portrait"]}) no-repeat center center`,
-      });
+      $(".technology-img-tag").attr("src", `${data.technology[0]["images"]["portrait"]}`);
       $(".tech-circle").eq(0).addClass("tech-circle-active");
     }
 
@@ -384,9 +374,7 @@ $("span, p").on("click", (event) => {
 
       $(".name").text(data.technology[currentIndex].name.toUpperCase());
       $(".describe-text").text(data.technology[currentIndex].description);
-      $(".technology-img").css({
-        background: `url(${data.technology[currentIndex]["images"]["portrait"]}) no-repeat center center`,
-      });
+      $(".technology-img-tag").attr("src", `${data.technology[currentIndex]["images"]["portrait"]}`);
 
       for (let i = 0; i < $(".circles").children().length; i++) {
         $(".tech-circle").eq(i).removeClass("tech-circle-active");

@@ -125,6 +125,15 @@ main p.heading-5 b {
   color: grey;
 }
 
+img.planet-img-tag, 
+img.person-img-tag, 
+img.technology-img-tag {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: auto;
+}
+
 /* Стилі для home-page */
 
 .circle {
@@ -324,10 +333,6 @@ main.technology .tech-circle-active {
   color: black;
 }
 
-main.technology .technology-img {
-  height: 530px;
-}
-
 main.technology .circles,
 main.technology .technology-info {
   margin-top: 130px;
@@ -379,15 +384,6 @@ main.technology .technology-info {
     margin-left: 20px;
   }
 
-  main.destination div.planet-img,
-  main.crew div.person-img {
-    width: 445px;
-    height: 445px;
-    margin: auto;
-    margin-bottom: 40px;
-    margin-top: 40px;
-  }
-
   main.destination div.planet-info {
     display: flex;
     flex-direction: column;
@@ -408,6 +404,7 @@ main.technology .technology-info {
 
   main.crew p.bio {
     margin: auto;
+    font-size: 15px;
   }
 
   main.crew div.points {
@@ -424,6 +421,22 @@ main.technology .technology-info {
 
   main.crew div.person-inf {
     height: 420px;
+  }
+
+  main.crew img.person-img-tag {
+    max-width: 50%;
+  }
+
+  main.crew .heading-5 {
+    font-size: 20px;
+  }
+
+  main.crew .heading-4 {
+    font-size: 26px;
+  }
+
+  main.crew .heading-3 {
+    font-size: 45px;
   }
 
   main.technology p.heading-5 {
@@ -458,12 +471,12 @@ main.technology .technology-info {
     margin: auto;
   }
 
-  main.technology .technology-img {
-    position: relative;
-    bottom: 700px;
-    height: 300px;
-    width: 620px;
-    margin: auto;
+  main.technology img.technology-img-tag {
+    position: absolute;
+    top: 213px;
+    height: 40%;
+    width: 100%;
+    max-width: none;
   }
 }
 
@@ -519,6 +532,92 @@ main.technology .technology-info {
 
   main.home div.block-circle {
     margin-top: 70px;
+  }
+
+  main.destination img.planet-img-tag {
+    max-width: 45%;
+    margin: 25px auto;
+  }
+
+  main.destination div.planet-info div.planet-text {
+    font-size: 15px;
+  }
+
+  main.destination  .heading-2 {
+    font-size: 60px;
+  }
+
+  main.destination  .heading-5 {
+    text-align: center;
+    font-size: 15px;
+  }
+
+  main.destination div.planet-info div.additional-info {
+    flex-direction: column;
+    align-items: center;
+    text-align: center; 
+  }
+
+  main.crew {
+    margin: 3% 0 5% 0;
+  } 
+
+  main.crew .heading-5 {
+    font-size: 15px;
+  }
+
+  main.crew div.describe {
+    margin-top: 350px;
+  }
+  
+  main.crew img.person-img-tag {
+    position: relative;
+    bottom: 330px;
+    margin: auto;
+  }
+
+  main.crew .heading-4 {
+    font-size: 20px;
+  }
+
+  main.crew .point {
+    width: 10px;
+    height: 10px;
+  }
+
+  main.crew div.points {
+    position: relative;
+    bottom: 210px;
+  }
+
+  main.crew .heading-3 {
+    font-size: 30px;
+  }
+
+  main.technology div.circles {
+    margin-top: 350px;
+  }
+
+  main.technology .tech-circle {
+    width: 35px;
+    height: 35px;
+  }
+
+  .heading-5 {
+    text-align: center;
+    font-size: 15px;
+  }
+
+  main.technology .heading-4 {
+    font-size: 15px;
+  }
+  
+  main.technology .heading-3 {
+    font-size: 30px;
+  }
+
+  main.technology .describe-text {
+    font-size: 15px;
   }
 
 }
