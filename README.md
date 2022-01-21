@@ -26,10 +26,10 @@ Users should be able to:
 
 ### Screenshot
 
-![home-page](/assets/screenshots/Screenshot from 2022-01-21 19-30-53.png)
-![destination-page](/assets/screenshots/Screenshot from 2022-01-21 19-31-00.png)
-![crew-page](/assets/screenshots/Screenshot from 2022-01-21 19-31-02.png)
-![technology-page](/assets/screenshots/Screenshot from 2022-01-21 19-31-04.png)
+![home-page](./home.png)
+![destination-page](./destination.png)
+![crew-page](./crew.png)
+![technology-page](./technology.png)
 
 ### Links
 
