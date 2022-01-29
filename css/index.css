@@ -480,6 +480,59 @@ main.technology .technology-info {
   }
 }
 
+@media screen and (max-width: 740px) {
+  .nav-text {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .nav-text {
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .nav-text {
+    font-size: 11px;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .nav-text {
+    font-size: 9px;
+  }
+}
+
+@media screen and (max-width: 510px) {
+  .nav-text {
+    font-size: 7px;
+  }
+
+  .heading-5 {
+    font-size: 22px;
+  }
+
+  .heading-1 {
+    font-size: 135px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .nav-text {
+    font-size: 5px;
+  }
+
+  .heading-1 {
+    font-size: 110px;
+  }
+
+  main.home .text {
+    font-size: 16px;
+  }
+}
+
+
 @media screen and (max-width: 375px) {
   html {
     background: url("../assets/home/background-home-mobile.jpg") no-repeat
